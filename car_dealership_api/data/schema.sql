@@ -35,3 +35,12 @@ CREATE TABLE reservations (
     FOREIGN KEY (car_id) REFERENCES cars(car_id)
 );
 
+/*
+Database schema for car dealership
+*/
+
+INSERT OR IGNORE INTO users (user_id, name, mail, password_hash, role) VALUES
+    (1, 'AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
+    (2, 'CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
+
+COMMIT;
