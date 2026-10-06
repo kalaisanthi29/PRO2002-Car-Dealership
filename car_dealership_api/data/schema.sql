@@ -44,4 +44,8 @@ INSERT OR IGNORE INTO users (name, mail, password_hash, role) VALUES
     ('AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
     ('CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
 
+--Car test data--
+INSERT OR IGNORE INTO cars (car_brand, car_model, car_year, car_mileage, fuel_type, price, car_status)
+    VALUES ('Toyota','Corolla',2022,30000,'Petrol',250000,TRUE);
+
 COMMIT;
