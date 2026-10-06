@@ -1,9 +1,10 @@
 /*
 Database schema for car dealership
 */
+BEGIN TRANSACTION;
 
 --User table--
-CREATE TABLE users (
+CREATE TABLE  IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY,
     name  TEXT NOT NULL,
     mail TEXT UNIQUE NOT NULL,
@@ -12,7 +13,7 @@ CREATE TABLE users (
 );
 
 --Cars table--
-CREATE TABLE cars (
+CREATE TABLE IF NOT EXISTS cars (
     car_id INTEGER PRIMARY KEY,
     car_brand TEXT NOT NULL,
     car_model TEXT NOT NULL,
@@ -24,7 +25,7 @@ CREATE TABLE cars (
 );
 
 --Reservations table--
-CREATE TABLE reservations (
+CREATE TABLE IF NOT EXISTS reservations (
     reservation_id INTEGER PRIMARY KEY,
     user_id INTEGER NOT NULL,
     car_id INTEGER NOT NULL,
@@ -36,11 +37,11 @@ CREATE TABLE reservations (
 );
 
 /*
-Database schema for car dealership
+Database schema inserts
 */
 
 INSERT OR IGNORE INTO users (user_id, name, mail, password_hash, role) VALUES
-    (1, 'AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
-    (2, 'CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
+    ('AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
+    ('CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
 
 COMMIT;
