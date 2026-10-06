@@ -7,7 +7,7 @@ CREATE TABLE users (
     user_id INTEGER PRIMARY KEY,
     name  TEXT NOT NULL,
     mail TEXT UNIQUE NOT NULL,
-    password TEXT NOT NULL,
+    password_hash TEXT NOT NULL,
     role TEXT NOT NULL
 );
 
@@ -17,9 +17,10 @@ CREATE TABLE cars (
     car_brand TEXT NOT NULL,
     car_model TEXT NOT NULL,
     car_year INTEGER NOT NULL,
-    car_mileage FLOAT NOT NULL,
+    car_mileage INTEGER NOT NULL,
     fuel_type TEXT NOT NULL,
-    price  FLOAT NOT NULL
+    price  FLOAT NOT NULL,
+    car_status BOOLEAN NOT NULL
 );
 
 --Reservations table--
@@ -28,7 +29,7 @@ CREATE TABLE reservations (
     user_id INTEGER NOT NULL,
     car_id INTEGER NOT NULL,
     reservation_date DATE,
-    status BOOLEAN NOT NULL DEFAULT 0,
+    status TEXT,
 
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (car_id) REFERENCES cars(car_id)
