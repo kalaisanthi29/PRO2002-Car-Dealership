@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS reservations (
 Database schema inserts
 */
 
-INSERT OR IGNORE INTO users (user_id, name, mail, password_hash, role) VALUES
+INSERT OR IGNORE INTO users (name, mail, password_hash, role) VALUES
     ('AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
     ('CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
 
