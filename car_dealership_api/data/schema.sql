@@ -29,7 +29,7 @@ CREATE TABLE reservations (
     user_id INTEGER NOT NULL,
     car_id INTEGER NOT NULL,
     reservation_date DATE,
-    status TEXT,
+    reservation_status TEXT,
 
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     FOREIGN KEY (car_id) REFERENCES cars(car_id)
