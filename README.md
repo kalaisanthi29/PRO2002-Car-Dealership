@@ -17,8 +17,6 @@ sqlite3 schema.db < schema.sql
 ```
 sqlite3 schema.db "SELECT * FROM users"
 ```
-
-
 ## Environment Configuration
 
 ## API Usage
