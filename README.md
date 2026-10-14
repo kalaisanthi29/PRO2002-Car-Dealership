@@ -11,7 +11,7 @@ cd car_dealership_api\data\
 ```
 2. In terminal copy code and run to create database
 ```
-sqlite3 schema.db < schema.sql
+sqlite3 dealership.db < schema.sql
 ```
 3. In terminal test database
 ```

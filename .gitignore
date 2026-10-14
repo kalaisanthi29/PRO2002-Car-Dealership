@@ -1,1 +1,2 @@
-car_dealership_api/data/schema.db
+car_dealership_api/data/dealership.db
+car_dealership_api/data/__pycache__
