@@ -1,2 +1,4 @@
 car_dealership_api/data/dealership.db
 car_dealership_api/data/__pycache__
+__pycache__/
+*.pyc
