@@ -1,2 +1,3 @@
 car_dealership_api/data/dealership.db
 car_dealership_api/data/__pycache__
+.pytest_cache
