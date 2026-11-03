@@ -20,11 +20,11 @@ class UserDataAccess:
         return row ["email"] if row else None
 
 
-    def create_user(self, name:str, firebase_uid:str, email:str, role:str) -> int | None:
+    def create_user(self, firebase_uid:str, name:str, email:str, role:str) -> int | None:
         """Inserting a new user to the User table in dealership db"""
         with connect(self._db_path) as conn:
             cursor = conn.execute(
-                "INSERT INTO users (name, firebase_uid, email, role) VALUES (?, ?, ?, ?)",
-                (name, firebase_uid, email, role)
+                "INSERT INTO users (firebase_uid, name, email, role) VALUES (?, ?, ?, ?)",
+                (firebase_uid, name, email, role)
             )
         return cursor.lastrowid
