@@ -1,3 +1,8 @@
 car_dealership_api/data/dealership.db
 car_dealership_api/data/__pycache__
 .pytest_cache
+car_dealership_api/auth/firebase_credentials.json
+car_dealership_api/auth/firebase_config.json
+package-lock.json 
+package.json
+node_modules

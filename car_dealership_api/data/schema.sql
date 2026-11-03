@@ -6,9 +6,9 @@ BEGIN TRANSACTION;
 --User table--
 CREATE TABLE  IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY,
+    firebase_uid TEXT UNIQUE NOT NULL,
     name  TEXT NOT NULL,
     mail TEXT UNIQUE NOT NULL,
-    password_hash TEXT NOT NULL,
     role TEXT NOT NULL
 );
 
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS reservations (
 Database schema inserts
 */
 
-INSERT OR IGNORE INTO users (name, mail, password_hash, role) VALUES
-    ('AdminTest', 'AdminTest@mail.com', 'admin1234', 'admin'),
-    ('CustomerTest','CustomerTest@mail.com', 'user1234', 'customer');
+INSERT OR IGNORE INTO users (name, mail, role) VALUES
+    ('AdminTest', 'AdminTest@mail.com', 'admin'),
+    ('CustomerTest','CustomerTest@mail.com', 'customer');
 
 --Car test data--
 INSERT OR IGNORE INTO cars (car_brand, car_model, car_year, car_mileage, fuel_type, price, car_status)
