@@ -8,7 +8,7 @@ CREATE TABLE  IF NOT EXISTS users (
     user_id INTEGER PRIMARY KEY,
     firebase_uid TEXT UNIQUE NOT NULL,
     name  TEXT NOT NULL,
-    mail TEXT UNIQUE NOT NULL,
+    email TEXT UNIQUE NOT NULL,
     role TEXT NOT NULL
 );
 
@@ -40,9 +40,9 @@ CREATE TABLE IF NOT EXISTS reservations (
 Database schema inserts
 */
 
-INSERT OR IGNORE INTO users (name, mail, role) VALUES
-    ('AdminTest', 'AdminTest@mail.com', 'admin'),
-    ('CustomerTest','CustomerTest@mail.com', 'customer');
+INSERT OR IGNORE INTO users (name, firebase_uid, email, role) VALUES
+    ('AdminTest','abcX1f23', 'AdminTest@mail.com', 'admin'),
+    ('CustomerTest','a19xdgb2','CustomerTest@mail.com', 'customer');
 
 --Car test data--
 INSERT OR IGNORE INTO cars (car_brand, car_model, car_year, car_mileage, fuel_type, price, car_status)
