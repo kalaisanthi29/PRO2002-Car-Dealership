@@ -1,6 +1,8 @@
 car_dealership_api/data/dealership.db
-car_dealership_api/data/__pycache__
-.pytest_cache
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
 car_dealership_api/auth/serviceAccountKey.json
 car_dealership_api/auth/firebase_config.json
 package-lock.json 

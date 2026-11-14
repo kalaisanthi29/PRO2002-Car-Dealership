@@ -15,7 +15,7 @@ sqlite3 dealership.db < schema.sql
 ```
 3. In terminal test database
 ```
-sqlite3 schema.db "SELECT * FROM users"
+sqlite3 dealership.db "SELECT * FROM users"
 ```
 ## Environment Configuration
 
