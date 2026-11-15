@@ -9,7 +9,7 @@ CREATE TABLE  IF NOT EXISTS users (
     firebase_uid TEXT UNIQUE NOT NULL,
     name  TEXT NOT NULL,
     email TEXT UNIQUE NOT NULL,
-    role TEXT NOT NULL
+    role TEXT DEFAULT 'customer' NOT NULL
 );
 
 --Cars table--
