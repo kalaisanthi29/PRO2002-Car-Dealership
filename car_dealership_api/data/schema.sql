@@ -36,16 +36,4 @@ CREATE TABLE IF NOT EXISTS reservations (
     FOREIGN KEY (car_id) REFERENCES cars(car_id)
 );
 
-/*
-Database schema inserts
-*/
-
-INSERT OR IGNORE INTO users (name, firebase_uid, email, role) VALUES
-    ('AdminTest','abcX1f23', 'AdminTest@mail.com', 'admin'),
-    ('CustomerTest','a19xdgb2','CustomerTest@mail.com', 'customer');
-
---Car test data--
-INSERT OR IGNORE INTO cars (car_brand, car_model, car_year, car_mileage, fuel_type, price, car_status)
-    VALUES ('Toyota','Corolla',2022,30000,'Petrol',250000,TRUE);
-
 COMMIT;
