@@ -16,8 +16,6 @@ class RegistrationFactory:
 
         missing = [key for key in required if key not in payload]
 
-        email_format = payload["email"].strip()
-
         if missing:
             raise ValueError(f"missing name,email or password: {', '.join(missing)}"
             )
@@ -27,6 +25,8 @@ class RegistrationFactory:
 
             if not isinstance(value, str) or not value.strip():
                 raise ValueError(f"Invalid or empty: {key}")
+
+        email_format = payload["email"].strip()
 
         # Regex for checking the email format.
         if not re.fullmatch(r"[^@\s]+@[^@.\s]+\.[^@.\s]+", email_format):

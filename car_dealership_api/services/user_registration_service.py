@@ -1,5 +1,5 @@
 """User registration service"""
-from firebase_admin import exceptions
+import sqlite3
 from car_dealership_api.models.users import User
 from car_dealership_api.models.registrationFactory import RegistrationFactory
 
@@ -22,6 +22,9 @@ class UserRegistrationService:
         # Creates a Firebase user
         firebase_uid = self.firebase_data.create_user_firebase(email, password)
 
+        if not firebase_uid:
+            raise RuntimeError("Firebase user creation failed")
+
         try:
             # Creates a new user in the database with the firebase uid
             user_id = self.user_data.create_user(firebase_uid, name, email)
@@ -29,12 +32,12 @@ class UserRegistrationService:
             if user_id is None:
                 raise RuntimeError("Failed to create user")
 
-        except exceptions.FirebaseError:
+        except (sqlite3.Error, RuntimeError):
 
             deleted = self.firebase_data.delete_user_firebase(firebase_uid)
 
             if not deleted:
-                raise RuntimeError("Failed to create and delete Firebase user")
+                raise RuntimeError("Failed to remove Firebase user")
 
             raise
 
@@ -43,4 +46,5 @@ class UserRegistrationService:
             user_id=user_id,
             firebase_uid= firebase_uid,
             name=name,
-            email=email,)
+            email=email,
+        )

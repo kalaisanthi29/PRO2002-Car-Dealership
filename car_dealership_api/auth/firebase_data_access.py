@@ -9,19 +9,15 @@ class FirebaseDataAccess:
         """initializes firebase"""
         initialize_firebase()
 
-    def create_user_firebase(self, email:str, password:str) -> str | None:
+    def create_user_firebase(self, email:str, password:str) -> str :
         """Function to create a new user with email and password in firebase"""
-        try:
-            user = auth.create_user(
-                email=email,
-                password=password
-            )
 
-            return user.uid
+        user = auth.create_user(
+            email=email,
+            password=password
+        )
 
-        except exceptions.FirebaseError:
-            return None
-
+        return user.uid
 
     def delete_user_firebase(self, uid:str) -> bool:
         """Function to delete a existing user in firebase"""
